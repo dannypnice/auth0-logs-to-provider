@@ -6,19 +6,19 @@ const amqp = require('amqplib');
 module.exports = () => {
 
     let rabbituriconfig = {
-        protocol: config('protocol') || 'amqp',
-        hostname: config('hostname') || 'localhost',
-        port: config('port') || 5672,
-        username: config('username') || 'guest',
-        password: config('password') || 'guest',
-        locale: config('locale') || 'en_US',
-        frameMax: config('frameMax') || 0,
-        heartbeat: config('heartbeat') || 0,
-        vhost: config('vhost') || '/',
+        protocol: config('RABBITMQ_URI_PROTOCOL') || 'amqp',
+        hostname: config('RABBITMQ_URI_HOSTNAME') || 'localhost',
+        port: config('RABBITMQ_URI_PORT') || 5672,
+        username: config('RABBITMQ_URI_USER') || 'guest',
+        password: config('RABBITMQ_URI_PASSWORD') || 'guest',
+        locale: config('RABBITMQ_URI_LOCALE') || 'en_US',
+        frameMax: config('RABBITMQ_URI_FRAMEMAX') || 0,
+        heartbeat: config('RABBITMQ_URI_HEARTBEAT') || 0,
+        vhost: config('RABBITMQ_URI_VHOST') || '/',
     }
 
-    exchange = config('exchange') || 'logging.application.auth0';
-    routingkey = config('exchange') || '' ;
+    exchange = config('RABBITMQ_URI_EXCHANGE') || 'logging.application.auth0';
+    routingkey = config('RABBITMQ_URI_ROUTINGKEY') || '' ;
 
     let rabbitconnection = amqp.connect(rabbituriconfig);
 
