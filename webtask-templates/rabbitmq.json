@@ -1,0 +1,52 @@
+{
+    "title": "Auth0 Logs to RABBITMQ",
+    "name": "auth0-logs-to-RABBITMQ",
+    "version": "0.0.1",
+    "preVersion": "0.0.0",
+    "description": "This extension will continuously export your Auth0 logs to RabbitMQ",
+    "docsUrl": "https://auth0.com/docs/extensions/RABBITMQ",
+    "logoUrl": "https://cdn.auth0.com/extensions/auth0-logs-to-RABBITMQ/assets/logo.png",
+    "secrets": {
+      "RABBITMQ_URI_HOSTNAME": {
+        "description": "RabbitMQ instance hostname",
+        "example": "localhost",
+        "required": true
+      },
+      "RABBITMQ_URI_PROTOCOL": {
+        "description": "RabbitMQ protocol",        
+        "example": "amqp",
+        "required": true
+      },
+      "RABBITMQ_URI_PORT": {
+        "description": "RabbitMQ Port",
+        "required": true
+      },
+      "RABBITMQ_URI_USER": {
+        "description": "RabbitMQ User",
+        "required": true
+      },
+      "RABBITMQ_URI_PASSWORD": {
+        "description": "RabbitMQ Password",
+        "type": "password"
+      },
+      "RABBITMQ_URI_LOCALE": {
+        "description": "RabbitMQ locale"
+      },
+      "RABBITMQ_URI_FRAMEMAX": {
+        "description": "RabbitMQ frameMax"
+      },
+      "RABBITMQ_URI_HEARTBEAT": {
+        "description": "RabbitMQ heartbeat"
+      },
+      "RABBITMQ_URI_VHOST": {
+        "description": "RabbitMQ vhost"
+      },
+      "RABBITMQ_URI_EXCHANGE": {
+        "description": "RabbitMQ exchange"
+      },
+      "RABBITMQ_URI_ROUTINGKEY": {
+        "description": "RabbitMQ routing key"
+      }
+    }
+  }
+  
