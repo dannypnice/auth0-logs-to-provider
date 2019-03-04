@@ -25,28 +25,22 @@
       },
       "RABBITMQ_URI_PASSWORD": {
         "description": "RabbitMQ Password",
-        "type": "password",
-        "required": true
+        "type": "password"
       },
       "RABBITMQ_URI_LOCALE": {
-        "description": "RabbitMQ locale",
-        "required": true
+        "description": "RabbitMQ locale"
       },
       "RABBITMQ_URI_FRAMEMAX": {
-        "description": "RabbitMQ frameMax",
-        "required": true
+        "description": "RabbitMQ frameMax"
       },
       "RABBITMQ_URI_HEARTBEAT": {
-        "description": "RabbitMQ heartbeat",
-        "required": true
+        "description": "RabbitMQ heartbeat"
       },
       "RABBITMQ_URI_VHOST": {
-        "description": "RabbitMQ vhost",
-        "required": true
+        "description": "RabbitMQ vhost"
       },
       "RABBITMQ_URI_EXCHANGE": {
-        "description": "RabbitMQ exchange",
-        "required": true
+        "description": "RabbitMQ exchange"
       },
       "RABBITMQ_URI_ROUTINGKEY": {
         "description": "RabbitMQ routing key"
