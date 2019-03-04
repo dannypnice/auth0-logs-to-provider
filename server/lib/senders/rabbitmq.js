@@ -17,10 +17,11 @@ module.exports = () => {
         vhost: config('RABBITMQ_URI_VHOST') || '/',
     }
 
-    exchange = config('RABBITMQ_URI_EXCHANGE') || 'logging.application.auth0';
-    routingkey = config('RABBITMQ_URI_ROUTINGKEY') || '' ;
+    let exchange = config('RABBITMQ_URI_EXCHANGE') || 'logging.application.auth0';
+    let routingkey = config('RABBITMQ_URI_ROUTINGKEY') || '';
 
-    let rabbitconnection = amqp.connect(rabbituriconfig);
+    let connection = amqp.connect(rabbituriconfig);
+    let channel = connection.createChannel();
 
     return (logs, callback) => {
         if (!logs || !logs.length) {
@@ -28,17 +29,14 @@ module.exports = () => {
         }
 
         logger.info(`Sending ${logs.length} logs to RabbitMQ.`);
-        
-        rabbitconnection.createChannel().then(function(channel){
-        
-            var ok = channel.assertExchange(exchange, 'topic', {durable: true});
+        var ok = channel.assertExchange(exchange, 'topic', { durable: true });
 
-            return ok.then(function(){
-                logs.forEach(log => {
-                    channel.publish(exchange,routingkey,Buffer.from(log));                    
-                });
-            })
+        return ok.then(function () {
+            logs.forEach(log => {
+                var jsonlog = JSON.stringify(log)
+                channel.publish(exchange, routingkey, Buffer.from(jsonlog));
+            });
         })
-        
+
     };
 }
